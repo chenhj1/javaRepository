@@ -11,6 +11,7 @@
     <modules>
         <module>JavaThread</module>
         <module>DesignPattern</module>
+        <module>Sort</module>
     </modules>
 
 
