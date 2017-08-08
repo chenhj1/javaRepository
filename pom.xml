@@ -12,6 +12,7 @@
         <module>JavaThread</module>
         <module>DesignPattern</module>
         <module>Sort</module>
+`        <module>DataStructure</module>
     </modules>
 
 

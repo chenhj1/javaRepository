@@ -3,7 +3,7 @@ package com.chj.sort.quicksort;
 import net.sf.json.JSONArray;
 
 /**
- * Created by chenhj1 on 2017/7/27.
+ * 快排
  */
 public class QuickSort {
 
