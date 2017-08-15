@@ -4,13 +4,16 @@ package com.chj.datastructure.bigfile;
  * Created by Administrator on 2017/8/14.
  */
 public class BigFileTest {
+
+    public static final String filepath = "C:\\data\\bigfile.txt";
+
     public static void main(String []args){
-        BigFileReader bigFileReader = new BigFileReader.Builder("E:\\javafile\\bigfile.txt", new IHandle() {
+        BigFileReader bigFileReader = new BigFileReader.Builder(filepath, new IHandle() {
             @Override
             public void handle(String line) {
                 System.out.println(line);
             }
-        }).build();
-        bigFileReader.start(bigFileReader);
+        }).withTreahdSize(2).withCharset("UTF-8").build();
+        bigFileReader.start();
     }
 }
