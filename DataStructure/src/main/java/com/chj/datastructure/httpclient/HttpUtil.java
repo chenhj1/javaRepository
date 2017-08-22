@@ -29,7 +29,7 @@ public class HttpUtil {
     private static Logger logger = Logger.getLogger(HttpUtil.class);
 
     public static void main(String[] args) {
-        String s = post("http://10.50.3.97:85/tc-hot-labelservice/labelchannel/GetChannelList?userId=123&channel=NBA&operation=default",0,0);
+        String s = get("http://10.50.3.97:85/tc-hot-labelservice/labelchannel/GetChannelList?userId=123&channel=NBA&operation=default",0,0);
         System.out.println(s);
     }
 
