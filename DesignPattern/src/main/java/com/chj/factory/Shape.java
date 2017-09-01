@@ -1,4 +1,4 @@
-package com.ifeng.factory;
+package com.chj.factory;
 
 /**
  * Created by chenhj1 on 2017/8/15.

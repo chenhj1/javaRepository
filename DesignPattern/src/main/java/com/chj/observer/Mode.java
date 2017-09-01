@@ -1,4 +1,4 @@
-package com.ifeng.observer;
+package com.chj.observer;
 
 /**
  * Created by chenhj1 on 2017/7/24.

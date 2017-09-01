@@ -1,4 +1,4 @@
-package com.ifeng.observer;
+package com.chj.observer;
 
 /**
  * 观察者模式<a href="http://www.yiibai.com/design_pattern/observer_pattern.html">链接</a><br>

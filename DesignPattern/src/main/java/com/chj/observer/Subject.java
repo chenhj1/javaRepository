@@ -1,4 +1,4 @@
-package com.ifeng.observer;
+package com.chj.observer;
 
 import java.util.LinkedList;
 import java.util.List;

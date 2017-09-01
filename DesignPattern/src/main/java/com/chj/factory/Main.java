@@ -1,7 +1,4 @@
-package com.ifeng.factory;
-
-import java.util.ArrayList;
-import java.util.List;
+package com.chj.factory;
 
 /**
  * Created by chenhj1 on 2017/8/15.

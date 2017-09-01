@@ -1,4 +1,4 @@
-package com.ifeng.factory;
+package com.chj.factory;
 
 /**
  * 工厂模式

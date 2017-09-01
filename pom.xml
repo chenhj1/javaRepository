@@ -13,6 +13,7 @@
         <module>DesignPattern</module>
         <module>Sort</module>
         <module>DataStructure</module>
+        <module>Spring</module>
     </modules>
 
     <dependencies>
