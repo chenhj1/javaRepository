@@ -24,28 +24,29 @@
     <profiles>
         <profile>
             <id>development</id>
-            <activation>
-                <activeByDefault>true</activeByDefault>
-            </activation>
-            <build>
-                <resources>
-                    <resource>
-                        <directory>src/main/resources/development</directory>
-                        <filtering>true</filtering>
-                    </resource>
-                </resources>
-            </build>
+            <!--<activation>
+                <property>
+                    <name>development</name>
+                    <value>true</value>
+                </property>
+            </activation>-->
+            <properties>
+                <key1>development_value1</key1>
+            </properties>
+
         </profile>
         <profile>
             <id>production</id>
-            <build>
-                <resources>
-                    <resource>
-                        <directory>src/main/resources/production</directory>
-                        <filtering>true</filtering>
-                    </resource>
-                </resources>
-            </build>
+            <!--<activation>
+                <property>
+                    <name>production</name>
+                    <value>true</value>
+                </property>
+            </activation>-->
+            <properties>
+                <key1>production_value1</key1>
+            </properties>
+
         </profile>
     </profiles>
 
@@ -54,8 +55,7 @@
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
-            <version>3.8.1</version>
-            <scope>test</scope>
+            <version>4.0</version>
         </dependency>
 
         <dependency>
@@ -151,6 +151,12 @@
     </dependencies>
     <build>
         <finalName>Spring</finalName>
+        <resources>
+            <resource>
+                <directory>src/main/resources</directory>
+                <filtering>true</filtering>
+            </resource>
+        </resources>
         <plugins>
             <plugin>
                 <groupId>org.eclipse.jetty</groupId>
