@@ -7,14 +7,9 @@ public class Test {
     public static void main(String []args){
         System.out.println("123");
         System.out.println("123");
-        System.out.println("123");
-        System.out.println("123");
 
         fun1();
 
-        System.out.println("123");
-        System.out.println("123");
-        System.out.println("123");
         System.out.println("123");
     }
 
@@ -26,5 +21,13 @@ public class Test {
     public static void fun2(){
         System.out.println("fun2");
     }
+
+}
+
+class Test2{
+
+}
+
+class Test3{
 
 }
