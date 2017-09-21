@@ -1,6 +1,8 @@
 package com.chj.Semaphore;
 
+import java.util.Random;
 import java.util.concurrent.Semaphore;
+import java.util.concurrent.TimeUnit;
 
 /**
  * 8个工人使用5台机器生产
@@ -26,7 +28,7 @@ public class Test {
             try {
                 semaphore.acquire();
                 System.out.println("工人"+this.num+"占用一个机器在生产...");
-                Thread.sleep(2000);
+                TimeUnit.SECONDS.sleep(new Random().nextInt(10));
                 System.out.println("工人"+this.num+"释放出机器");
                 semaphore.release();
             } catch (InterruptedException e) {
