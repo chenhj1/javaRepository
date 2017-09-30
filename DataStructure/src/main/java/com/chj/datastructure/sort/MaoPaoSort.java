@@ -1,4 +1,4 @@
-package com.chj.sort.maopao;
+package com.chj.datastructure.sort;
 
 import net.sf.json.JSONArray;
 import net.sf.json.JSONObject;

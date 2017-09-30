@@ -1,4 +1,4 @@
-package com.chj.sort.quicksort;
+package com.chj.datastructure.sort;
 
 import net.sf.json.JSONArray;
 
