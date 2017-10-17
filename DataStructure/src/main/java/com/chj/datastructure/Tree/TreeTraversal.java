@@ -8,8 +8,10 @@ import java.util.Stack;
 
 /**
  * Created by chenhj1 on 2017/8/2.
+ * <a href="http://blog.csdn.net/my_jobs/article/details/43451187">二叉树遍历</a>
+ * 对于二叉树，有深度遍历和广度遍历，深度遍历有前序、中序以及后序三种遍历方法，广度遍历即我们平常所说的层次遍历。
  */
-public class TreeTest {
+public class TreeTraversal {
 
 
     /**
@@ -37,7 +39,7 @@ public class TreeTest {
     }
 
     /**
-     * 广度优先遍历
+     * 广度优先遍历。循环
      */
     @Test
     public void levelOrder() {
@@ -62,7 +64,7 @@ public class TreeTest {
 
 
     /**
-     * 深度优先遍历
+     * 深度优先遍历。循环
      */
     @Test
     public void depthOrder(){
@@ -81,4 +83,53 @@ public class TreeTest {
             }
         }
     }
+
+    /**
+     * 深度优先遍历。前序。递归。
+     * @param root
+     */
+    public static void levelPreOrder(TreeNode root){
+        if (root != null) {
+            System.out.print(root.getValue()+"  ");
+            levelPreOrder(root.getLeft());
+            levelPreOrder(root.getRight());
+        }
+    }
+
+    /**
+     * 二叉树的深度。递归。
+     */
+    public static int deep(TreeNode node) {
+        int leftHight, rightHight;
+        if (node == null) {
+            return 0;
+        } else {
+            leftHight = deep(node.getLeft());
+            rightHight = deep(node.getRight());
+            return (leftHight < rightHight) ? rightHight + 1 : leftHight + 1;
+        }
+    }
+
+    /**
+     * 叶子数
+     * @param node
+     * @return
+     */
+    public static int leafNum(TreeNode node) {
+        if (node != null) {
+            if (node.getLeft() == null && node.getRight() == null) {
+                return 1;
+            }
+            return leafNum(node.getLeft()) + leafNum(node.getRight());
+        }
+        return 0;
+    }
+
+    public static void main(String []args){
+        TreeNode root = createTree();
+//        levelPreOrder(root);
+//        System.out.println(deep(root));
+        System.out.println(leafNum(root));
+    }
+
 }

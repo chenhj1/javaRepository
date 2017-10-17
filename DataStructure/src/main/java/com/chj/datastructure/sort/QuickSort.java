@@ -3,7 +3,7 @@ package com.chj.datastructure.sort;
 import net.sf.json.JSONArray;
 
 /**
- * 快排
+ * 快排，时间复杂度O(nlogn)
  */
 public class QuickSort {
 
