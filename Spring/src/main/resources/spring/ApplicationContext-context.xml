@@ -10,10 +10,11 @@
         <context:exclude-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
     </context:component-scan>
 
+    <!-- Spring定时任务 -->
     <bean id="jobtest" class="com.chj.timertask.Job"/>
-    <task:scheduled-tasks>
-        <!-- every 1 minute , delay 1 s-->
-        <task:scheduled ref="jobtest" method="jobMethod" cron="* */1 * * * *" initial-delay="1000"/>
-    </task:scheduled-tasks>
+    <!--<task:scheduled-tasks>
+        &lt;!&ndash; every 1 minute , delay 1 s&ndash;&gt;
+        <task:scheduled ref="jobtest" method="jobMethod" cron="* */1 * * * *" />
+    </task:scheduled-tasks>-->
 
 </beans>
