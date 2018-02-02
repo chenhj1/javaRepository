@@ -1,10 +1,9 @@
 package com.chj.datastructure.Tree;
 
+import org.apache.commons.lang.ArrayUtils;
 import org.junit.Test;
 
-import java.util.ArrayDeque;
-import java.util.Queue;
-import java.util.Stack;
+import java.util.*;
 
 /**
  * Created by chenhj1 on 2017/8/2.
@@ -60,6 +59,48 @@ public class TreeTraversal {
                 }
             }
         }
+    }
+
+
+    /**
+     * 输出二叉树每一行最大值
+     */
+    @Test
+    public void  largestValues() {
+        TreeNode root = createTree();
+        Queue<TreeNode> queue = new ArrayDeque<>();
+
+        List<Integer> res = new LinkedList<>();
+
+        queue.offer(root);
+        while (!queue.isEmpty()) {
+            int levelNum = queue.size();
+
+            TreeNode node = queue.poll();
+            int temp = node.getValue();
+            if (node.getLeft() != null) {
+                queue.offer(node.getLeft());
+            }
+            if (node.getRight() != null) {
+                queue.offer(node.getRight());
+            }
+
+
+            for (int i = 1; i < levelNum; i++) {
+                if (queue.peek().getValue() > temp) {
+                    temp = queue.peek().getValue();
+                }
+                if (queue.peek().getLeft() != null) {
+                    queue.offer(queue.peek().getLeft());
+                }
+                if (queue.peek().getRight() != null){
+                    queue.offer(queue.peek().getRight());
+                }
+                queue.poll();
+            }
+            res.add(temp);
+        }
+        System.out.println(ArrayUtils.toString(res));
     }
 
 
