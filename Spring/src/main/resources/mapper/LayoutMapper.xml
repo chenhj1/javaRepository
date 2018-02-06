@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//ibatis.apache.org//DTD Config 3.1//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.chj.mapper.LayoutMapper">
+
+    <select id="cards"  parameterType="map" resultType="map">
+        SELECT * FROM adv_card
+        WHERE 1 = 1
+        <if test="id != null and id!= ''">
+            AND id = #{id}
+        </if>
+        <if test="channel_id != null and channel_id!= ''">
+            AND channel_id = #{channel_id}
+        </if>
+
+        limit 10
+    </select>
+
+
+</mapper>

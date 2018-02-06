@@ -12,11 +12,11 @@
     <!-- 配置注解驱动 -->
     <mvc:annotation-driven/>
 
-    <!-- 配置定时任务竹节驱动 -->
+    <!-- 配置定时任务注解驱动 -->
     <task:annotation-driven/>
 
     <!-- 自动扫描该包，使SpringMVC认为包下用了@controller注解的类是控制器 -->
-    <context:component-scan base-package="com.chj.controller"/>
+    <context:component-scan base-package="com.chj"/>
 
     <!-- 对模型视图名称的解析，即在模型视图名称添加前后缀 使用JSP-->
     <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">

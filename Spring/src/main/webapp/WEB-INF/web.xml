@@ -7,9 +7,13 @@
 
     <display-name>tc-usermodel</display-name>
 
+    <!--扫描context配置文件-->
     <context-param>
         <param-name>contextConfigLocation</param-name>
-        <param-value>classpath:/spring/ApplicationContext-context.xml</param-value>
+        <param-value>
+            classpath:/spring/ApplicationContext-context.xml,
+            classpath:context/context-mybatis.xml
+        </param-value>
     </context-param>
 
     <listener>
