@@ -1,6 +1,7 @@
 package com.chj.controller;
 
 import com.chj.dao.LayoutDao;
+import com.chj.service.HelloWorldService;
 import com.chj.service.PropertyService;
 import net.sf.json.JSONArray;
 import net.sf.json.JSONObject;
@@ -11,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.annotation.PostConstruct;
+import javax.servlet.http.HttpServletRequest;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -21,6 +23,9 @@ public class MainController {
 
     @Autowired
     public PropertyService propertyService;
+
+    @Autowired
+    public HelloWorldService helloWorldService;
 
     @Autowired
     private LayoutDao layoutDao;
@@ -40,6 +45,14 @@ public class MainController {
         JSONObject jsonObject = new JSONObject();
         jsonObject.put("state","success");
         jsonObject.put("key",value);
+        return jsonObject;
+    }
+
+    @ResponseBody
+    @RequestMapping(value = "/hello")
+    public Object hellowordAspect(HttpServletRequest httpServletRequest,String key){
+
+        JSONObject jsonObject = helloWorldService.SayHelloWorld(key);
         return jsonObject;
     }
 
