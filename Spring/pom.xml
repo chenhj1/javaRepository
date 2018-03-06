@@ -25,6 +25,13 @@
         <databaseUser>root</databaseUser>
         <databasePassword>sec</databasePassword>
 
+        <httpClient.maxTotal>200</httpClient.maxTotal>
+        <httpClient.defaultMaxPerRoute>50</httpClient.defaultMaxPerRoute>
+        <httpClient.connectTimeout>1000</httpClient.connectTimeout>
+        <httpClient.connectionRequestTimeout>500</httpClient.connectionRequestTimeout>
+        <httpClient.socketTimeout>10000</httpClient.socketTimeout>
+        <httpClient.staleConnectionCheckEnabled>true</httpClient.staleConnectionCheckEnabled>
+
     </properties>
 
     <profiles>

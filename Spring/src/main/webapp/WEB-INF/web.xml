@@ -13,7 +13,8 @@
         <param-value>
             classpath:/spring/ApplicationContext-context.xml,
             classpath:context/context-mybatis.xml,
-            classpath:context/context-aspect.xml
+            classpath:context/context-aspect.xml,
+            classpath:context/context-httpclient.xml
         </param-value>
     </context-param>
 

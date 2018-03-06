@@ -2,9 +2,11 @@ package com.chj.controller;
 
 import com.chj.dao.LayoutDao;
 import com.chj.service.HelloWorldService;
+import com.chj.service.HttpClientService;
 import com.chj.service.PropertyService;
 import net.sf.json.JSONArray;
 import net.sf.json.JSONObject;
+import org.apache.http.protocol.HttpService;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -29,6 +31,9 @@ public class MainController {
 
     @Autowired
     private LayoutDao layoutDao;
+
+    @Autowired
+    private HttpClientService httpClientService;
 
     private static Logger logger = Logger.getLogger(MainController.class);
 
@@ -65,6 +70,18 @@ public class MainController {
         paramsMap.put("channel_id",channelId);
         List<Map<String,String>> resultList = layoutDao.cards(paramsMap);
         return JSONArray.fromObject(resultList);
+    }
+
+    @ResponseBody
+    @RequestMapping(value = "/http")
+    public Object httptest(){
+        String result = "";
+        try {
+            result = httpClientService.doGet("http://www.baidu.com");
+        }catch (Exception e){
+
+        }
+        return result;
     }
 
 }

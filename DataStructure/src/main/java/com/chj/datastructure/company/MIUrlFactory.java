@@ -14,8 +14,8 @@ import java.util.List;
  */
 public class MIUrlFactory {
 
-    private static final String originUrl = "http://api.sec.miui.com/20180206/wap.html";
-    private static final String name = "0213";
+    private static final String originUrl = "https://click.tanx.com/tfn?e=i0ZU%2bytb3Tms9LjH9ETB%2bdhtMzNTd5bRzN1VIJJUwTdfIdbp78SIFt7svA7zOooAZLEZNekXf9BjGnqqlqP2dAJVDR5mHbAAbOSD2iffDL%2bZLLmMPl7P52SEk1UvLgCd&u=https%3a%2f%2f38.tmall.com%2f%3fwh_weex%3dtrue%26hbfr%3dhbfr%3d29%26bc_fl_src%3dtanx_df_143240096%26resource_id%3d14954&k=128&ext=a%3d__IMEI__%26b%3d__IDFA__%26c%3d__MAC__";
+    private static final String name = "0306";
 
     public static void main(String args []){
         try {
