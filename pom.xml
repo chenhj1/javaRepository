@@ -13,6 +13,7 @@
         <module>DesignPattern</module>
         <module>DataStructure</module>
         <module>Spring</module>
+        <module>Work</module>
     </modules>
 
     <dependencies>
