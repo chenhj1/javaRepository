@@ -8,6 +8,6 @@ public class Main {
         Student zhangsan = new CommonStudent("张三");
         Student monitor = new StudentProxy(zhangsan);
 
-        monitor.giveMoney();//班长代缴费
+        monitor.giveMoney(25);//班长代缴费
     }
 }

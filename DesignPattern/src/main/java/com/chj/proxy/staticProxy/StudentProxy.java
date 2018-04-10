@@ -14,7 +14,7 @@ public class StudentProxy implements Student {
      * 班长代替commonStudent缴费
      */
     @Override
-    public void giveMoney() {
-        student.giveMoney();
+    public void giveMoney(int money) {
+        student.giveMoney(money);
     }
 }

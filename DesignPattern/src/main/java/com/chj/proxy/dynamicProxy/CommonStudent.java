@@ -1,4 +1,4 @@
-package com.chj.proxy.staticProxy;
+package com.chj.proxy.dynamicProxy;
 
 /**
  * Created by chenhaojie on 2018/04/10.
