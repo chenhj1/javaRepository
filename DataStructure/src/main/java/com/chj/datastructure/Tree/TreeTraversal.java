@@ -72,17 +72,17 @@ public class TreeTraversal {
 
         List<Integer> res = new LinkedList<>();
 
-        queue.offer(root);
+        queue.add(root);
         while (!queue.isEmpty()) {
             int levelNum = queue.size();
 
             TreeNode node = queue.poll();
             int temp = node.getValue();
             if (node.getLeft() != null) {
-                queue.offer(node.getLeft());
+                queue.add(node.getLeft());
             }
             if (node.getRight() != null) {
-                queue.offer(node.getRight());
+                queue.add(node.getRight());
             }
 
 
@@ -91,12 +91,12 @@ public class TreeTraversal {
                     temp = queue.peek().getValue();
                 }
                 if (queue.peek().getLeft() != null) {
-                    queue.offer(queue.peek().getLeft());
+                    queue.add(queue.peek().getLeft());
                 }
                 if (queue.peek().getRight() != null){
-                    queue.offer(queue.peek().getRight());
+                    queue.add(queue.peek().getRight());
                 }
-                queue.poll();
+                queue.remove();
             }
             res.add(temp);
         }
