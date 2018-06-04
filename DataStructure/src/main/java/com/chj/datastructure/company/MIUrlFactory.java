@@ -14,8 +14,8 @@ import java.util.List;
  */
 public class MIUrlFactory {
 
-    private static final String originUrl = "https://i.topeffects.cn/activity/index?id=498&spm=38.129.23.203#";
-    private static final String name = "0420";
+    private static final String originUrl = "https://ccc-x.jd.com/dsp/cl?posid=1999&v=707&union_id=1000023384&pid=1079&tagid=101318&to=https://pro.m.jd.com/mall/active/43q7qmuiUW2e6QyUDZ9nveqKC8s2/index.html?ad_od=1";
+    private static final String name = "0601";
 
     public static void main(String args []){
         try {
