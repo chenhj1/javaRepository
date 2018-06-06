@@ -19,6 +19,8 @@ public class TreeTraversal {
      *               3     5
      *              /  \    \
      *             2   9     7
+     *                  \
+     *                  10
      */
     public static TreeNode createTree() {
         TreeNode root = new TreeNode(8);
@@ -27,14 +29,34 @@ public class TreeTraversal {
         TreeNode node2 = new TreeNode(2);
         TreeNode node9 = new TreeNode(9);
         TreeNode node7 = new TreeNode(7);
+        TreeNode node10 = new TreeNode(10);
 
         root.setLeft(node3);
         root.setRight(node5);
         node3.setLeft(node2);
         node3.setRight(node9);
         node5.setRight(node7);
+        node9.setRight(node10);
 
         return root;
+    }
+
+    /**
+     * 寻找最长路径的长度。
+     */
+    public static int maxLength;
+    public static void longestPath(TreeNode root,int currLength){
+        if (root.getLeft() != null){
+            longestPath(root.getLeft(),currLength + 1);
+        }
+        if(root.getRight() != null){
+            longestPath(root.getRight(),currLength + 1);
+        }
+        if(root.getRight() == null && root.getLeft() == null){
+            if (currLength > maxLength){
+                maxLength = currLength;
+            }
+        }
     }
 
     /**
@@ -170,7 +192,9 @@ public class TreeTraversal {
         TreeNode root = createTree();
 //        levelPreOrder(root);
 //        System.out.println(deep(root));
-        System.out.println(leafNum(root));
+//        System.out.println(leafNum(root));
+        longestPath(root,1);
+        System.out.println(maxLength);
     }
 
 }
