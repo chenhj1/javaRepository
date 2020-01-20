@@ -96,7 +96,7 @@ public class TreeTraversal {
 
         queue.add(root);
         while (!queue.isEmpty()) {
-            int levelNum = queue.size();
+            int queueSize = queue.size();
 
             TreeNode node = queue.poll();
             int temp = node.getValue();
@@ -108,7 +108,7 @@ public class TreeTraversal {
             }
 
 
-            for (int i = 1; i < levelNum; i++) {
+            for (int i = 1; i < queueSize; i++) {
                 if (queue.peek().getValue() > temp) {
                     temp = queue.peek().getValue();
                 }
@@ -123,6 +123,58 @@ public class TreeTraversal {
             res.add(temp);
         }
         System.out.println(ArrayUtils.toString(res));
+    }
+
+    /**
+     * 输出二叉树每一行最大值 V2写法
+     */
+    @Test
+    public void  largestValuesV2() {
+        TreeNode root = createTree();
+        Queue<TreeNode> queue = new ArrayDeque<>();
+
+        List<Integer> results = new LinkedList<>();
+
+        queue.add(root);
+        while (!queue.isEmpty()) {
+            int queueSize = queue.size();  // 记录当前这一层的元素个数。下方的“遍历一层”，遍历到queueSize截止
+            int max = Integer.MIN_VALUE;
+
+            // 遍历一层。
+            for (int i = 0; i < queueSize; i++) {  // 遍历这一层找出最大值。同时把这一层的所有孩子节点放入队列中。
+                TreeNode node = queue.poll();
+                if (node.value > max) max = node.value;
+                if (node.left != null) queue.add(node.left);
+                if (node.right != null) queue.add(node.right);
+            }
+
+            results.add(max);
+        }
+        System.out.println(ArrayUtils.toString(results));
+    }
+
+    /**
+     * 层次打印二叉树
+     */
+    @Test
+    public void  largestValuesV3() {
+        TreeNode root = createTree();
+        Queue<TreeNode> queue = new ArrayDeque<>();
+
+        queue.add(root);
+        while (!queue.isEmpty()) {
+            int queueSize = queue.size();  // 记录当前这一层的元素个数。下方的“遍历一层”，遍历到queueSize截止
+
+            // 遍历一层。
+            for (int i = 0; i < queueSize; i++) {  // 遍历这一层找出最大值。同时把这一层的所有孩子节点放入队列中。
+                TreeNode node = queue.poll();
+                if (i == 0) {
+                    System.out.println(node.value);
+                }
+                if (node.left != null) queue.add(node.left);
+                if (node.right != null) queue.add(node.right);
+            }
+        }
     }
 
 
