@@ -14,29 +14,41 @@ public class TreeTraversal {
 
 
     /**
-     *                  8
-     *                 /  \
-     *               3     5
-     *              /  \    \
-     *             2   9     7
-     *                  \
-     *                  10
+     *                     1
+     *                 /       \
+     *               2          3
+     *              /  \       /  \
+     *             4   5      6    7
+     *            /     \   /  \
+     *           8      9  10  11
      */
     public static TreeNode createTree() {
-        TreeNode root = new TreeNode(8);
-        TreeNode node3 = new TreeNode(3);
-        TreeNode node5 = new TreeNode(5);
+        TreeNode root = new TreeNode(1);
         TreeNode node2 = new TreeNode(2);
-        TreeNode node9 = new TreeNode(9);
+        TreeNode node3 = new TreeNode(3);
+        TreeNode node4 = new TreeNode(4);
+        TreeNode node5 = new TreeNode(5);
+        TreeNode node6 = new TreeNode(6);
         TreeNode node7 = new TreeNode(7);
+        TreeNode node8 = new TreeNode(8);
+        TreeNode node9 = new TreeNode(9);
         TreeNode node10 = new TreeNode(10);
+        TreeNode node11 = new TreeNode(11);
 
-        root.setLeft(node3);
-        root.setRight(node5);
-        node3.setLeft(node2);
-        node3.setRight(node9);
-        node5.setRight(node7);
-        node9.setRight(node10);
+        root.setLeft(node2);
+        root.setRight(node3);
+
+        node2.setLeft(node4);
+        node2.setRight(node5);
+
+        node3.setLeft(node6);
+        node3.setRight(node7);
+
+        node4.setLeft(node8);
+        node4.setRight(node9);
+
+        node5.setLeft(node10);
+        node5.setRight(node11);
 
         return root;
     }
@@ -175,6 +187,52 @@ public class TreeTraversal {
                 if (node.right != null) queue.add(node.right);
             }
             System.out.println();
+        }
+    }
+
+    /**
+     * 蛇形打印二叉树。
+     * 思路：定义一个二维结果数组，按照“分层打印”的思路，判断当前是奇数偶数层，决定当前层数组元素的顺序。
+     */
+    @Test
+    public void  treePrintZ() {
+        TreeNode root = createTree();
+        Queue<TreeNode> queue = new ArrayDeque<>();
+        LinkedList<LinkedList<TreeNode>> results = new LinkedList<LinkedList<TreeNode>>();  // 结果（二维数组）
+        boolean flag = true;
+
+        queue.add(root);
+        while (!queue.isEmpty()) {
+            int queueSize = queue.size();  // 记录当前这一层的元素个数。
+
+            LinkedList<TreeNode> oneLevelResult = new LinkedList<TreeNode>();  // 保存本层节点
+
+            // 遍历一层。每次循环打印这一层的一个节点，同时把该节点的左右子节点放入队列。
+            //由于这个循环执行queueSize次，所以打印完本层节点就结束for循环了。孩子节点会在下一轮while循环打印。
+            for (int i = 0; i < queueSize; i++) {
+                TreeNode node = queue.poll();
+
+                // 判断奇偶层，决定本层节点是正序还是逆序保存
+                if (flag) {
+                    oneLevelResult.addLast(node);
+                }else {
+                    oneLevelResult.addFirst(node);
+                }
+
+                if (node.left != null) queue.add(node.left);
+                if (node.right != null) queue.add(node.right);
+            }
+            results.add(oneLevelResult);
+            flag = !flag;
+        }
+
+        // 输出结果
+        for (int i = 0;i<results.size();i ++ ){
+            LinkedList<TreeNode> oneLevelResult = results.get(i);
+            for (int j = 0;j<oneLevelResult.size();j ++ ){
+                System.out.print(oneLevelResult.get(j).value + " ");
+            }
+            System.out.println("");
         }
     }
 
