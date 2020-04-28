@@ -157,23 +157,24 @@ public class TreeTraversal {
      * 层次打印二叉树
      */
     @Test
-    public void  largestValuesV3() {
+    public void  treePrint() {
         TreeNode root = createTree();
         Queue<TreeNode> queue = new ArrayDeque<>();
 
         queue.add(root);
         while (!queue.isEmpty()) {
-            int queueSize = queue.size();  // 记录当前这一层的元素个数。下方的“遍历一层”，遍历到queueSize截止
+            int queueSize = queue.size();  // 记录当前这一层的元素个数。
 
-            // 遍历一层。
-            for (int i = 0; i < queueSize; i++) {  // 遍历这一层找出最大值。同时把这一层的所有孩子节点放入队列中。
+            // 遍历一层。每次循环打印这一层的一个节点，同时把该节点的左右子节点放入队列。
+            //由于这个循环执行queueSize次，所以打印完本层节点就结束for循环了。孩子节点会在下一轮while循环打印。
+            for (int i = 0; i < queueSize; i++) {
                 TreeNode node = queue.poll();
-                if (i == 0) {
-                    System.out.println(node.value);
-                }
+                System.out.print(node.value + " ");
+
                 if (node.left != null) queue.add(node.left);
                 if (node.right != null) queue.add(node.right);
             }
+            System.out.println();
         }
     }
 
